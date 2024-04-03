@@ -39,7 +39,8 @@
   border-radius: 3px;
 }
 
-.p1-button {
+/* common style for all */
+.button-div {
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
@@ -149,6 +150,50 @@ button:hover {
 }
 
 
+/* Page 4 Styles */
+
+.p4-container{
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Align items towards the start (top) of the container */
+  height: 120vh;
+  padding-top: 50px;
+}
+
+.p4-form {
+  width: 600px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.detail-item{
+  font-size: 20px;
+  padding: 5px;
+}
+
+.detail-item span{
+    font-weight: 600;
+}
+
+.p4-container h2 {
+  text-align: center;
+  background-color: lavender;
+  padding: 8px;
+  margin-bottom: 20px;
+}
+
+.p4-button {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  border-top: 1px solid #ccc; /* Add border */
+  padding-top: 20px; /* Add padding for spacing */
+}
+
+
+
 
 /* Sucess page container */
 .s-container{
@@ -157,4 +202,16 @@ button:hover {
   align-items: flex-start; /* Align items towards the start (top) of the container */
   height: 120vh;
   padding-top: 50px;
+}
+
+.s-container span{
+  font-size: 30px;
+  font-style: italic;
+  font-weight: 500;
+}
+
+/* Error Messages */
+.error{
+  color: red;
+  padding-top: 5px;
 }

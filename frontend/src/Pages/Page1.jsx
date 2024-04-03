@@ -36,8 +36,7 @@ const Page1 = ({ nextStep, formData, updater }) => {
               value={formData.name}/>
               
               {/* Validation Logic */}
-            {formik.touched.name && formik.errors.name ? 
-            ( <div className="error" style={{color:'red', paddingTop:'5px'}}>{formik.errors.name}</div>) : null}
+            { formik.errors.name ? (<div className="error">{formik.errors.name}</div>) : null}
         </div>
           
           {/* Date of birth */}
@@ -49,8 +48,7 @@ const Page1 = ({ nextStep, formData, updater }) => {
             value={formData.dob}  />
 
             {/* DOB Validation */}
-          {formik.touched.dob && formik.errors.dob ? 
-          ( <div className="error" style={{color:'red', paddingTop:'5px'}}>{formik.errors.dob}</div> ) : null}
+          { formik.errors.dob ? (<div className="error">{formik.errors.dob}</div>) : null}
         </div>
 
             {/* Email */}
@@ -62,8 +60,7 @@ const Page1 = ({ nextStep, formData, updater }) => {
             value={formData.email} />
 
             {/* Email Validation */}
-          {formik.touched.email && formik.errors.email ? 
-          ( <div className="error" style={{color:'red', paddingTop:'5px'}}>{formik.errors.email}</div> ) : null}
+          { formik.errors.email ? (<div className="error">{formik.errors.email}</div>) : null}
         </div>
 
           {/* Phone Number */}
@@ -75,11 +72,10 @@ const Page1 = ({ nextStep, formData, updater }) => {
             value={formData.phone} />
 
             {/* Phone number validation */}
-          {formik.touched.phone && formik.errors.phone ?
-           ( <div className="error" style={{color:'red', paddingTop:'5px'}}>{formik.errors.phone}</div> ) : null }
+          { formik.errors.phone ? (<div className="error">{formik.errors.phone}</div>) : null }
         </div>
 
-        <div className='p1-button'> <button type="submit">Next</button> </div>
+        <div className='button-div'> <button type="submit">Next</button> </div>
       </form>
     </div>
     

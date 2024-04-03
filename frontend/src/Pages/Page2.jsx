@@ -46,21 +46,13 @@ const Page2 = ({ prevStep, nextStep, formData, updater }) => {
     updater('interedtedAreas', area);
   };
 
-
-
   const formik = useFormik({
     initialValues: formData,
     validationSchema,
     onSubmit: values => {
-      // You can perform any necessary action here
       nextStep();
     }
   });
-
-  const Previous = e => {
-    e.preventDefault();
-    prevStep();
-  }
 
   return (
     <div className="p2-container">
@@ -71,10 +63,7 @@ const Page2 = ({ prevStep, nextStep, formData, updater }) => {
         <div className="p2-form-group">
           <label htmlFor="programmingLanguage">Primary Programming Language:</label>
           <select id="programmingLanguage" name="programmingLanguage"
-            onChange={e =>  {
-              formik.handleChange(e);
-              updater('programmingLanguage', e.target.value)
-            }} 
+            onChange={e =>  { formik.handleChange(e); updater('programmingLanguage', e.target.value) }} 
             onBlur={formik.handleBlur}
             value={formik.values.programmingLanguage}
             required
@@ -86,19 +75,16 @@ const Page2 = ({ prevStep, nextStep, formData, updater }) => {
             <option value="C#">C#</option>
             <option value="Other">Other</option>
           </select>
-          {formik.touched.programmingLanguage && formik.errors.programmingLanguage ? (
-            <div className="error"  style={{color:'red', paddingTop:'5px'}}>{formik.errors.programmingLanguage}</div>
-          ) : null}
+          
+            {/* Validation logic */}
+          {formik.errors.programmingLanguage ? (<div className="error">{formik.errors.programmingLanguage}</div>) : null}
         </div>
         
         {/* Select Experience Level */}
         <div className="p2-form-group">
           <label htmlFor="experienceLevel">Experience Level:</label>
           <select id="experienceLevel" name="experienceLevel"
-            onChange={e =>  {
-              formik.handleChange(e);
-              updater('experienceLevel', e.target.value)
-            }} 
+            onChange={e => { formik.handleChange(e); updater('experienceLevel', e.target.value) }} 
             onBlur={formik.handleBlur}
             value={formik.values.experienceLevel}
             required
@@ -109,9 +95,9 @@ const Page2 = ({ prevStep, nextStep, formData, updater }) => {
             <option value="Advanced">Advanced</option>
             <option value="Expert">Expert</option>
           </select>
-          {formik.touched.experienceLevel && formik.errors.experienceLevel ? (
-            <div className="error" style={{color:'red', paddingTop:'5px'}}>{formik.errors.experienceLevel}</div>
-          ) : null}
+
+            {/* Validation logic */}
+          { formik.errors.experienceLevel ? (<div className="error">{formik.errors.experienceLevel}</div>) : null}
         </div>
         
         {/* Select one or more Tech Stack */}
@@ -147,9 +133,7 @@ const Page2 = ({ prevStep, nextStep, formData, updater }) => {
           <label htmlFor="mean">Other Stack</label> <br />
           
           {/* validation logic */}
-          {formik.touched.developmentStack && formik.errors.developmentStack ? (
-            <div className="error" style={{color:'red', paddingTop:'5px'}}>{formik.errors.developmentStack}</div>
-          ) : null}
+          {formik.errors.developmentStack ? (<div className="error">{formik.errors.developmentStack}</div>) : null}
         </div>
 
          {/* Select interested areas */}
@@ -192,13 +176,11 @@ const Page2 = ({ prevStep, nextStep, formData, updater }) => {
           <label htmlFor="realtime">Real-Time Updates</label> <br />
 
            {/* validation logic */}
-          {formik.touched.taskScheduling && formik.errors.taskScheduling ? (
-            <div className="error" style={{color:'red', paddingTop:'5px'}}>{formik.errors.taskScheduling}</div>
-          ) : null}
+          { formik.errors.taskScheduling ? (<div className="error">{formik.errors.taskScheduling}</div>) : null}
         </div>
 
         <div className='p2-button'>
-          <button onClick={Previous} type="button">Previous</button>
+          <button onClick={prevStep} type="button">Previous</button>
           <button type="submit">Next</button>
         </div>
       </form>

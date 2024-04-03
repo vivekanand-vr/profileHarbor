@@ -1,6 +1,7 @@
 import React from 'react'
 
-const Page4 = ({ prevStep, nextStep, formData }) => {
+const Page4 = ({ prevStep, nextStep, formData, setFormData }) => {
+
   const renderResumeDetails = () => {
     if (formData.resume) {
       return (
@@ -18,7 +19,6 @@ const Page4 = ({ prevStep, nextStep, formData }) => {
 
         <form className="p4-form">
           <h2>User Details</h2>
-
           <div className="detail-item"> <span>Name:</span> {formData.name} </div>
           <div className="detail-item"> <span>Date of Birth:</span> {formData.dob} </div>
           <div className="detail-item"> <span>Email:</span> {formData.email} </div>
@@ -32,14 +32,14 @@ const Page4 = ({ prevStep, nextStep, formData }) => {
           <div className="detail-item">
             <span>Interested Areas:</span>
             <ul>
-              {formData.interedtedAreas.map((area, index) => (
+              {formData.interestedAreas.map((area, index) => (
                 <li key={index}>{area}</li>
               ))}
             </ul>
           </div>
 
           <div className="detail-item">
-            <span>Resume:</span> {renderResumeDetails}
+             {renderResumeDetails()}
           </div>
           
           <div className='p2-button'>

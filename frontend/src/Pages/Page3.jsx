@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../index.css';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
@@ -20,6 +20,19 @@ const validationSchema = Yup.object().shape({
 
 const Page3 = ({ prevStep, nextStep, formData, updater }) => {
 
+  const [file, setFile] = useState(null);
+  const handleChange = (e) => {
+    let selectedFile = e.target.files[0];
+    if(selectedFile){
+      let reader = new FileReader();
+      reader.readAsDataURL(selectedFile);
+      reader.onload = (e) => {
+        setFile(e.target.result);
+      }
+    }
+    updater('resume', file);
+  }
+
   const formik = useFormik({
     initialValues: {
       resume: null
@@ -38,7 +51,9 @@ const Page3 = ({ prevStep, nextStep, formData, updater }) => {
         <div className="p3-form-group">
           <label htmlFor="resume">Resume:</label>
           <input type="file" id="resume" name="resume" value={formData.resume}
-            onChange={(event) => { formik.setFieldValue("resume", event.currentTarget.files[0]); }} />
+            onChange={(event) => { 
+              formik.setFieldValue("resume", event.currentTarget.files[0]);
+              handleChange(event) }} />
 
           { formik.errors.resume ? (<div className="error">{formik.errors.resume}</div>) : null}
         </div>

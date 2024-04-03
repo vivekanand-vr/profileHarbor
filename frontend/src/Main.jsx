@@ -8,8 +8,8 @@ import Sucess from './Pages/Sucess';
 
 const Main = () => {
   
-  const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
+    step: 1,
     name: '',
     dob: new Date(),
     email: '',
@@ -17,7 +17,7 @@ const Main = () => {
     programmingLanguage: '',
     experienceLevel: '',
     preferredStack: [],
-    interedtedAreas: [],
+    interestedAreas: [],
     resume: null,
   })
 
@@ -28,25 +28,15 @@ const Main = () => {
 
     // go back to previous step
     const prevStep = () => {
-        setStep(step - 1);
+      setFormData({ ...formData, step: formData.step - 1 });
     }
 
     // proceed to the next step
     const nextStep = () => {
-        setStep(step + 1);
+      setFormData({ ...formData, step: formData.step + 1 });
     }
 
-//   const handleChange = input => e => {
-//     if (input === 'resume') {
-//       setFormData({ ...formData, [input]: e.target.files[0] });
-//     } else if (e.target.type === 'date') {
-//       setFormData({ ...formData, [input]: e.target.valueAsDate });
-//     } else {
-//       setFormData({ ...formData, [input]: e.target.value });
-//     }
-//   }
-
-    switch(step) {
+    switch(formData.step) {
         case 1: 
           return <Page1 
                   nextStep={nextStep}
@@ -70,6 +60,7 @@ const Main = () => {
                   prevStep={prevStep}
                   nextStep={nextStep}
                   formData={formData}
+                  setFormData={setFormData}
                   />;
         
         case 5: 

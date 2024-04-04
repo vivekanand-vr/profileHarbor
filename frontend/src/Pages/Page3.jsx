@@ -19,7 +19,7 @@ const validationSchema = Yup.object().shape({
 });
 
 const Page3 = ({ prevStep, nextStep, formData, updater }) => {
- 
+  
   const formik = useFormik({
     initialValues: {
       resume: null
@@ -40,7 +40,7 @@ const Page3 = ({ prevStep, nextStep, formData, updater }) => {
           <input type="file" id="resume" name="resume" 
             onChange={ e => {
               formik.setFieldValue("resume", e.currentTarget.files[0]);
-              updater('resume', e.currentTarget.files[0]) ;
+              updater('resume', e.currentTarget.files[0]);
             }} />
 
           {/* Validation Logic for files */}

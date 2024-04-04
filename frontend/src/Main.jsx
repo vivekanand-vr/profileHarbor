@@ -62,7 +62,7 @@ const Main = () => {
                   formData={formData} />;
         
         case 5: 
-          return <Sucess />;
+          return <Sucess setFormData={setFormData}/>;
 
         default: 
           return null;

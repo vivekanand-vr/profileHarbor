@@ -169,12 +169,14 @@ button:hover {
 }
 
 .detail-item{
+  margin-left: 5px;
   font-size: 20px;
   padding: 5px;
 }
 
 .detail-item span{
     font-weight: 600;
+    padding-right: 4px;
 }
 
 .p4-container h2 {
@@ -182,6 +184,13 @@ button:hover {
   background-color: lavender;
   padding: 8px;
   margin-bottom: 20px;
+}
+
+.p4-form h4 {
+  color: white;
+  text-align: center;
+  background-color: gray;
+  padding: 5px;
 }
 
 .p4-button {
@@ -197,20 +206,41 @@ button:hover {
 }
 
 
-
 /* Sucess page container */
 .s-container{
   display: flex;
   justify-content: center;
   align-items: flex-start; /* Align items towards the start (top) of the container */
-  height: 120vh;
+  height: 80vh;
   padding-top: 50px;
 }
 
 .s-container span{
+  padding: 20px;
+  text-align: center;
   font-size: 30px;
   font-style: italic;
   font-weight: 500;
+}
+
+.s-button{
+  justify-content: center;
+  margin-top: 20px;
+  border-top: 1px solid #ccc; /* Add border */
+  padding-top: 20px; /* Add padding for spacing */
+}
+
+.s-container button {  
+  font-size: 22px;
+  padding: 5px;
+  width: 40%;
+  margin-bottom: 5px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  
 }
 
 /* Error Messages */

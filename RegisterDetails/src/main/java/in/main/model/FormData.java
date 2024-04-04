@@ -26,6 +26,7 @@ public class FormData {
     private String experienceLevel;
     private String preferredStack;
     private String interestedAreas;
+    
     private MultipartFile resume;
     
 }

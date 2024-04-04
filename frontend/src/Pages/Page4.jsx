@@ -20,35 +20,39 @@ const Page4 = ({ prevStep, nextStep, formData }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Create an object with all form data
-      // Convert arrays to strings
-    const preferredStackString = JSON.stringify(formData.preferredStack);
-    const interestedAreasString = JSON.stringify(formData.interestedAreas);
+  // Create a new FormData object
+  const formDataToSend = new FormData();
 
-    // Create an object with all form data
-    const requestData = {
-      name: formData.name,
-      dob: formData.dob,
-      email: formData.email,
-      phone: formData.phone,
-      programmingLanguage: formData.programmingLanguage,
-      experienceLevel: formData.experienceLevel,
-      preferredStack: preferredStackString,
-      interestedAreas: interestedAreasString,
-    };
+  // Append each field to the FormData object
+  formDataToSend.append('name', formData.name);
+  formDataToSend.append('dob', formData.dob);
+  formDataToSend.append('email', formData.email);
+  formDataToSend.append('phone', formData.phone);
+  formDataToSend.append('programmingLanguage', formData.programmingLanguage);
+  formDataToSend.append('experienceLevel', formData.experienceLevel);
+
+  // Convert arrays to strings and append them
+  const preferredStackString = JSON.stringify(formData.preferredStack);
+  formDataToSend.append('preferredStack', preferredStackString);
   
-      // Sending POST request to Spring Boot backend
-      await axios.post('http://localhost:9999/RestMiniProject/submitFormData', requestData, {
-        headers: {
-          'Content-Type': 'application/json' // Set content type to JSON
-        }
-      });
-  
-      // Handle successful submission
-    } catch (error) {
-      // Handle any errors that occur during the request
-      console.error('Error submitting form data:', error);
+  const interestedAreasString = JSON.stringify(formData.interestedAreas);
+  formDataToSend.append('interestedAreas', interestedAreasString);
+
+  // Append the resume file
+  formDataToSend.append('resume', formData.resume);
+
+  // Sending POST request to Spring Boot backend
+  await axios.post('http://localhost:9999/RestMiniProject/submitFormData', formDataToSend, {
+    headers: {
+      'Content-Type': 'multipart/form-data' // Set content type to multipart/form-data
     }
+  });
+
+  // Handle successful submission
+} catch (error) {
+  // Handle any errors that occur during the request
+  console.error('Error submitting form data:', error);
+}
     nextStep(); // move to sucess page
   };
 

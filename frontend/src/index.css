@@ -161,7 +161,7 @@ button:hover {
 }
 
 .p4-form {
-  width: 600px;
+  width: 670px;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -192,6 +192,9 @@ button:hover {
   padding-top: 20px; /* Add padding for spacing */
 }
 
+.resume-container{
+  border: 1px solid black;
+}
 
 
 

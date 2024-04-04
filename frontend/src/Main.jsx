@@ -59,9 +59,7 @@ const Main = () => {
           return <Page4 
                   prevStep={prevStep}
                   nextStep={nextStep}
-                  formData={formData}
-                  setFormData={setFormData}
-                  />;
+                  formData={formData} />;
         
         case 5: 
           return <Sucess />;

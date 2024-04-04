@@ -1,19 +1,20 @@
 import React from 'react'
+import { Document, Page, pdfjs } from 'react-pdf';
+import "react-pdf/dist/esm/Page/TextLayer.css"; //to remove the text content inside pdf
+import "react-pdf/dist/esm/Page/AnnotationLayer.css"; //to remove the extra space below pdf 
 
-const Page4 = ({ prevStep, nextStep, formData, setFormData }) => {
+// to work with pdf files
+pdfjs.GlobalWorkerOptions.workerSrc = new URL(
+  'pdfjs-dist/build/pdf.worker.min.js',
+  import.meta.url,
+).toString();
 
-  const renderResumeDetails = () => {
-    if (formData.resume) {
-      return (
-        <p><span>Resume:</span> {formData.resume.name} (Size: {formData.resume.size} bytes)</p>
-      );
-    } else {
-      return (
-        <p><span>Resume:</span> Not Uploaded</p>
-      );
-    }
-  };
 
+
+const Page4 = ({ prevStep, nextStep, formData }) => {
+
+  //to display resume size in KB
+  const sizeInKB = Math.round(formData.resume.size / 1024);
   return (
     <div className="p4-container">
 
@@ -39,15 +40,19 @@ const Page4 = ({ prevStep, nextStep, formData, setFormData }) => {
           </div>
 
           <div className="detail-item">
-             {renderResumeDetails()}
+          <span>Resume:</span> { formData.resume.name } (size: {sizeInKB} KB)
           </div>
           
+          <div className='resume-container'>
+              <Document file={formData.resume}>
+                <Page pageNumber={1}  renderTextLayer={false} />
+              </Document>
+          </div>
+
           <div className='p2-button'>
           <button onClick={prevStep} type="submit">Edit Details</button>
           <button onClick={nextStep} type="submit">Submit</button>
           </div>
-
-
         </form>
     </div>
   );

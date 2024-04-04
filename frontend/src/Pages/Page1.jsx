@@ -51,6 +51,7 @@ const Page1 = ({ nextStep, formData, updater }) => {
           { formik.errors.dob ? (<div className="error">{formik.errors.dob}</div>) : null}
         </div>
 
+        <h4> Contact Information </h4>
             {/* Email */}
         <div className="p1-form-group">
           <label htmlFor="email">Email:</label>

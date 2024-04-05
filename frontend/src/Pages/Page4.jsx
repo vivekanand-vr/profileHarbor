@@ -11,7 +11,7 @@ pdfjs.GlobalWorkerOptions.workerSrc = new URL(
 ).toString();
 
 
-const Page4 = ({ prevStep, nextStep, formData }) => {
+const Page4 = ({ prevStep, nextStep, formData, updater }) => {
 
   //to display resume size in KB
   const sizeInKB = Math.round(formData.resume.size / 1024);
@@ -40,18 +40,19 @@ const Page4 = ({ prevStep, nextStep, formData }) => {
       data.append('resume', formData.resume);
 
       // Sending POST request to Spring Boot backend
-      await axios.post('http://localhost:9999/RestMiniProject/submitFormData', data, {
+      const response = await axios.post('http://localhost:9999/RestMiniProject/submitFormData', data, {
         headers: {
           'Content-Type': 'multipart/form-data' // Set content type to multipart/form-data
         }});
-  } 
 
+        console.log(response);
+        nextStep(); // move to sucess page after sending request sucessfully
+  } 
     catch (error) {
       // Handle any errors that occur during the request
       console.error('Error submitting form data:', error);
+      updater('step', 6); // Incase of error in sending requeset , display error page
     } 
-
-    nextStep(); // move to sucess page after sending request sucessfully
 };
 
   return (

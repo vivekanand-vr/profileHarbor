@@ -2,7 +2,7 @@ import '../index.css';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
-//Validation Logic for resume file
+// Validation Schema for resume file, size limit set to 2MB
 const validationSchema = Yup.object().shape({
   resume: Yup.mixed()
     .required('Resume is required')
@@ -31,11 +31,12 @@ const Page3 = ({ prevStep, nextStep, formData, updater }) => {
   });
 
   return (
-    <div className='p3-container'>
+    <div className='container'>
       <form className="p3-form" onSubmit={formik.handleSubmit}>
         <h2>Upload Your Resume</h2>
 
         <div className="p3-form-group">
+          
           <label htmlFor="resume">Resume:</label>    
           <input type="file" id="resume" name="resume" 
             onChange={ e => {
@@ -43,7 +44,7 @@ const Page3 = ({ prevStep, nextStep, formData, updater }) => {
               updater('resume', e.currentTarget.files[0]);
             }} />
 
-          {/* Validation Logic for files */}
+          {/* File Validation */}
           { formik.errors.resume ? (<div className="error">{formik.errors.resume}</div>) : null }
         </div>
 
@@ -51,6 +52,7 @@ const Page3 = ({ prevStep, nextStep, formData, updater }) => {
         <button onClick={prevStep} type="submit">Previous</button>
         <button type="submit">Next</button>
         </div>
+        
       </form>
     </div>
   );

@@ -1,11 +1,12 @@
 import React from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import '../index.css';
 
+/* Yup Validation  Schema */
 const validationSchema = Yup.object({
   name: Yup.string().required('Full name is required'),
-  dob: Yup.string().required('Date of Birth is required')
-  .matches(/^\d{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$/, 'Date of Birth is required'),
+  dob: Yup.date().required("Date of Birth is required").max(new Date(), "Future date not allowed"),
   email: Yup.string().email('Invalid email address').required('Email is required'),
   phone: Yup.string().required('Phone Number is required').matches(/^[0-9]{10}$/, 'Invalid phone number')
 });
@@ -21,7 +22,7 @@ const Page1 = ({ nextStep, formData, updater }) => {
 
   return (
 
-    <div className='p1-container'>
+    <div className='container'>
       <form className="p1-form" onSubmit={formik.handleSubmit}>
         
             {/* Header */}
@@ -35,7 +36,7 @@ const Page1 = ({ nextStep, formData, updater }) => {
               onBlur={formik.handleBlur}
               value={formData.name}/>
               
-              {/* Validation Logic */}
+              {/* Name Validation Logic */}
             { formik.errors.name ? (<div className="error">{formik.errors.name}</div>) : null}
         </div>
           
@@ -75,11 +76,11 @@ const Page1 = ({ nextStep, formData, updater }) => {
             {/* Phone number validation */}
           { formik.errors.phone ? (<div className="error">{formik.errors.phone}</div>) : null }
         </div>
-
+        
         <div className='button-div'> <button type="submit">Next</button> </div>
+
       </form>
-    </div>
-    
+    </div>    
   );
 };
 

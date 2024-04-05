@@ -1,12 +1,31 @@
-/* Page 1  Styles */
 
-.p1-container {
+/* Styles Commmon to all */ 
+.container {
   display: flex;
   justify-content: center;
   align-items: flex-start; /* Align items towards the start (top) of the container */
   height: 120vh;
   padding-top: 50px; /* Add some top padding to create space */
 }
+
+button {  
+  padding: 10px;
+  width: 100%;
+  margin-bottom: 5px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+
+/* Page 1  Styles */
+
 .p1-form {
   width: 500px;
   padding: 20px;
@@ -26,19 +45,18 @@
   margin-bottom: 20px;
 }
 
-.p1-container label {
+.p1-form label {
   display: block;
   margin-bottom: 5px;
 }
 
-.p1-container input,
-.p1-container textarea {
+.p1-form input,
+.p1-form textarea {
   width: 100%;
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 3px;
 }
-
 
 .button-div {
   display: flex;
@@ -48,31 +66,9 @@
   padding-top: 20px; /* Add padding for spacing */
 }
 
-button {  
-  padding: 10px;
-  width: 100%;
-  margin-bottom: 5px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #0056b3;
-}
-
 
 /* Page 2  Styles */
 
-.p2-container {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start; /* Align items towards the start (top) of the container */
-  height: 120vh;
-  padding-top: 50px; /* Add some top padding to create space */
-}
 .p2-form {
   width: 600px;
   padding: 20px;
@@ -118,13 +114,6 @@ button:hover {
 
 /* Page 3  Styles */
 
-.p3-container {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start; /* Align items towards the start (top) of the container */
-  height: 120vh;
-  padding-top: 50px; /* Add some top padding to create space */
-}
 .p3-form {
   width: 600px;
   padding: 20px;
@@ -152,14 +141,6 @@ button:hover {
 
 /* Page 4 Styles */
 
-.p4-container{
-  display: flex;
-  justify-content: center;
-  align-items: flex-start; /* Align items towards the start (top) of the container */
-  height: 120vh;
-  padding-top: 50px;
-}
-
 .p4-form {
   width: 670px;
   padding: 20px;
@@ -179,7 +160,7 @@ button:hover {
     padding-right: 4px;
 }
 
-.p4-container h2 {
+.p4-form h2 {
   text-align: center;
   background-color: lavender;
   padding: 8px;
@@ -206,7 +187,8 @@ button:hover {
 }
 
 
-/* Sucess page container */
+/* Sucess page styles */
+
 .s-container{
   display: flex;
   justify-content: center;
@@ -243,7 +225,7 @@ button:hover {
   
 }
 
-/* Error Messages */
+/* For Error messages Messages */
 .error{
   color: red;
   padding-top: 5px;

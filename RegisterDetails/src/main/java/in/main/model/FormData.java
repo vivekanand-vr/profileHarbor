@@ -2,12 +2,12 @@ package in.main.model;
 
 import java.sql.Date;
 
-import org.springframework.web.multipart.MultipartFile;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
+
 import lombok.Data;
 
 @Data
@@ -25,8 +25,8 @@ public class FormData {
     private String programmingLanguage;
     private String experienceLevel;
     private String preferredStack;
-    private String interestedAreas;
+    private String interestedAreas; 
     
-    private MultipartFile resume;
-    
+    @Lob
+    private byte[] resume;
 }

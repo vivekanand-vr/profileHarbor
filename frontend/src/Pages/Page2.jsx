@@ -2,6 +2,7 @@ import React from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
+/* Yup Validation  Schema */
 const validationSchema = Yup.object({
   programmingLanguage: Yup.string().required('Please select a programming language'),
   experienceLevel: Yup.string().required('Please select your experience level'),
@@ -14,29 +15,29 @@ const validationSchema = Yup.object({
 
 const Page2 = ({ prevStep, nextStep, formData, updater }) => {
 
-  /* handle checkboxes and add it to array in formData, using temporary array */
+  /* logic to handle checkboxes and add it to array in formData, using temporary array */
   const handleTechCheckbox = e => {
       formik.handleChange(e);
       const value = e.target.value;
-      let updatedTech = [...formData.preferredStack]; // Create a copy of the current tech array
+      let updatedTech = [...formData.preferredStack]; // creating a copy of the current tech array
 
       if (updatedTech.includes(value)) {
-        updatedTech = updatedTech.filter(stack => stack !== value); // Remove from array if already exists
+        updatedTech = updatedTech.filter(stack => stack !== value); // remove from array if already exists
       } else {
-        updatedTech.push(value); // Add to array if not exists
+        updatedTech.push(value); // add to array if not exists
       }
-        updater('preferredStack', updatedTech); // Pass the updatedTech array to updater
+        updater('preferredStack', updatedTech); // Pass the updatedTech array to updater 
   };
 
-  /* handle checkboxes and add it to array in formData, using a hook for a temporary array */
+  /* logic to handle checkboxes and add it to array in formData, using a hook for a temporary array */
   const handleAreaCheckbox = e => {
       formik.handleChange(e);
       const value = e.target.value;
-      let updatedArea = [...formData.interestedAreas]; // Create a copy of the current area array
+      let updatedArea = [...formData.interestedAreas]; // creating a copy of the current area array
       if (updatedArea.includes(value)) {
-        updatedArea = updatedArea.filter(stack => stack !== value); // Remove from array if already exists
+        updatedArea = updatedArea.filter(stack => stack !== value); // remove from array if already exists
       } else {
-        updatedArea.push(value); // Add to array if not exists
+        updatedArea.push(value); // add to array if not exists
       }
       updater('interestedAreas', updatedArea); // Pass the updatedArea array to updater
   };
@@ -50,7 +51,7 @@ const Page2 = ({ prevStep, nextStep, formData, updater }) => {
   });
 
   return (
-    <div className="p2-container">
+    <div className="container">
       <form className="p2-form" onSubmit={formik.handleSubmit}>
         <h2>Technical Skills and Preferences</h2>
         
@@ -61,8 +62,8 @@ const Page2 = ({ prevStep, nextStep, formData, updater }) => {
             onChange={e =>  { formik.handleChange(e); updater('programmingLanguage', e.target.value) }} 
             onBlur={formik.handleBlur}
             value={formik.values.programmingLanguage}
-            required
-          >
+            required >
+
             <option value="">Select</option>
             <option value="JavaScript">JavaScript</option>
             <option value="Python">Python</option>
@@ -71,7 +72,7 @@ const Page2 = ({ prevStep, nextStep, formData, updater }) => {
             <option value="Other">Other</option>
           </select>
           
-            {/* Validation logic */}
+            {/* language Validation */}
           {formik.errors.programmingLanguage ? (<div className="error">{formik.errors.programmingLanguage}</div>) : null}
         </div>
         
@@ -82,8 +83,8 @@ const Page2 = ({ prevStep, nextStep, formData, updater }) => {
             onChange={e => { formik.handleChange(e); updater('experienceLevel', e.target.value) }} 
             onBlur={formik.handleBlur}
             value={formik.values.experienceLevel}
-            required
-          >
+            required >
+
             <option value="">Select</option>
             <option value="Beginner">Beginner</option>
             <option value="Intermediate">Intermediate</option>
@@ -91,7 +92,7 @@ const Page2 = ({ prevStep, nextStep, formData, updater }) => {
             <option value="Expert">Expert</option>
           </select>
 
-            {/* Validation logic */}
+            {/* Experience Validation */}
           { formik.errors.experienceLevel ? (<div className="error">{formik.errors.experienceLevel}</div>) : null}
         </div>
         

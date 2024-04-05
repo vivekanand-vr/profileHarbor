@@ -5,9 +5,11 @@ import Page2 from './Pages/Page2';
 import Page3 from './Pages/Page3';
 import Page4 from './Pages/Page4';
 import Sucess from './Pages/Sucess';
+import Error from './Pages/Error';
 
 const Main = () => {
   
+  // creating a state varible which holds all the details, and passed to all pages to update respective page data
   const [formData, setFormData] = useState({
     step: 1,
     name: '',
@@ -21,7 +23,7 @@ const Main = () => {
     resume: null,
   })
 
-    // updater function to update the formdata in next components 
+    // updater function to update the formdata in particular components 
     const updateFormData = (fieldName, value) => {
         setFormData({ ...formData, [fieldName]: value });
     };
@@ -36,6 +38,7 @@ const Main = () => {
       setFormData({ ...formData, step: formData.step + 1 });
     }
 
+    // using stepper method to display particular pages/components
     switch(formData.step) {
         case 1: 
           return <Page1 
@@ -65,7 +68,7 @@ const Main = () => {
           return <Sucess setFormData={setFormData}/>;
 
         default: 
-          return null;
+          return <Error setFormData={setFormData} />;
       }
 }
 

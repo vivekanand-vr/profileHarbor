@@ -21,9 +21,9 @@ Submission Form is a web application designed to collect various types of inform
 7. **Success Page**: After successful submission, users are directed to a success page, where the form values are reset, allowing them to submit another form if needed.
 
 ## Technologies Used
-- **Frontend** : React JS, Bootstrap\
--  **Backend** : Spring Boot (Spring REST and Spring Data JPA)\
-- **Database** : MySQL\
+- **Frontend** : React JS, Bootstrap
+-  **Backend** : Spring Boot (Spring REST and Spring Data JPA)
+- **Database** : MySQL
 - **Additional Packages** : Formik, Yup, React-pdf, Axios
 
 ## Installation and Usage

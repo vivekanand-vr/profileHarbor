@@ -31,6 +31,7 @@ const Page3 = ({ prevStep, nextStep, formData, updater }) => {
   });
 
   return (
+    <div className='background'>
     <div className='container'>
       <form className="p3-form" onSubmit={formik.handleSubmit}>
         <h2>Upload Your Resume</h2>
@@ -54,6 +55,7 @@ const Page3 = ({ prevStep, nextStep, formData, updater }) => {
         </div>
         
       </form>
+    </div>
     </div>
   );
 };

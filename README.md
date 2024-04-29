@@ -1,12 +1,12 @@
-# Submission Form Documentation
+# ProfileHarbor Documentation
 
 ## Overview
 
-Submission Form is a web application designed to collect various types of information from users and submit it to a backend server. It provides a user-friendly interface for users to input their personal information, technical skills, preferences, and upload their resume. The application ensures data integrity and security through form validation and submission to a backend server built with Spring Boot.
+ProfileHarbor is a web application designed to collect various types of information from users and submit it to a backend server. It provides a user-friendly interface for users to input their personal information, technical skills, preferences, and upload their resume. The application ensures data integrity and security through form validation and submission to a backend server built with Spring Boot.
 
 ## Features
 
-1. **User-friendly Interface**: Submission Form provides a clean and intuitive interface for users to input their information across multiple pages.
+1. **User-friendly Interface**: ProfileHarbor provides a clean and intuitive interface for users to input their information across multiple pages.
 
 2. **Multi-page Form**: The form is divided into multiple pages, each focusing on specific categories of information, including personal information, technical skills, preferences, and resume upload.
 
@@ -28,7 +28,7 @@ Submission Form is a web application designed to collect various types of inform
 
 ## Installation and Usage
 
-* **Clone the Repository**: git clone https://github.com/vivekanand-vr/pilot.tech-submissionform.git
+* **Clone the Repository**: git clone https://github.com/vivekanand-vr/profileHarbor.git
 
 ### To run the frontend (React Application) in the project directory, you can run:
 

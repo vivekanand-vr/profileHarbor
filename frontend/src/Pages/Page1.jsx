@@ -21,7 +21,7 @@ const Page1 = ({ nextStep, formData, updater }) => {
   });
 
   return (
-
+    <div className='background'>
     <div className='container'>
       <form className="p1-form" onSubmit={formik.handleSubmit}>
         
@@ -80,7 +80,8 @@ const Page1 = ({ nextStep, formData, updater }) => {
         <div className='button-div'> <button type="submit">Next</button> </div>
 
       </form>
-    </div>    
+    </div>
+    </div>   
   );
 };
 

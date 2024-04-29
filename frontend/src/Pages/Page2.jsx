@@ -51,6 +51,7 @@ const Page2 = ({ prevStep, nextStep, formData, updater }) => {
   });
 
   return (
+    <div className='background'>
     <div className="container">
       <form className="p2-form" onSubmit={formik.handleSubmit}>
         <h2>Technical Skills and Preferences</h2>
@@ -187,6 +188,7 @@ const Page2 = ({ prevStep, nextStep, formData, updater }) => {
           <button type="submit">Next</button>
         </div>
       </form>
+    </div>
     </div>
   );
 }

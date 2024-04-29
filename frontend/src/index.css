@@ -1,3 +1,6 @@
+.background{
+  background-color: black;
+}
 
 /* Styles Commmon to all */ 
 .container {
@@ -29,7 +32,7 @@ button:hover {
 .p1-form {
   width: 500px;
   padding: 20px;
-  border: 1px solid #ccc;
+  border: 2px solid gray;
   border-radius: 5px;
   background-color: #f9f9f9;
 }
@@ -54,8 +57,8 @@ button:hover {
 .p1-form textarea {
   width: 100%;
   padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
+  border: 1px solid darkgray;
+  border-radius: 5px;
 }
 
 .button-div {

@@ -22,7 +22,7 @@ ProfileHarbor is a web application designed to collect various types of informat
 
 ## Technologies Used
 - **Frontend** : React JS, Bootstrap, Jest
--  **Backend** : Spring Boot (Spring REST and Spring Data JPA)
+-  **Backend** : Spring Boot, Junit
 - **Database** : MySQL
 - **Additional Packages** : Formik, Yup, React-pdf, Axios
 
@@ -56,7 +56,11 @@ This installs all the dependencies required for the application to run
 * Update the maven project and build
 * Configure database connection details in "application.properties"
 * Configure server port number and context path
-* Run as "Spring Boot Application" 
+* Run as "Spring Boot Application"
+
+### To run the tests:
+- The `in.main.tests` package contains several test classes for each layer.
+- Select a class and run as -> Junit test
 
 
 

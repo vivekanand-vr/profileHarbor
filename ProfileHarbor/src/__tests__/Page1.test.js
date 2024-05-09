@@ -1,24 +1,23 @@
 import React from 'react';
-import { render, fireEvent, waitFor, act } from '@testing-library/react'; 
+import '@testing-library/jest-dom';
+import { render, fireEvent, waitFor } from '@testing-library/react'; 
 import Page1 from '../Pages/Page1'; 
 
-describe('Page1 Component', () => { 
-    // Mock data object
-    let formData = {
-        name: '',
-        dob: '',
-        email: '',
-        phone: '',
-    };
-
+  // Mock data object
+  let formData = {
+    name: '',
+    dob: '',
+    email: '',
+    phone: '',
+  };
     // Mock updater function to modify formData
     const updateFormData = (fieldName, value) => {
-        formData = { ...formData, [fieldName]: value };
-    };
+      formData = { ...formData, [fieldName]: value };
+  };
+  // Mock function for next step
+  const nextStepMock = jest.fn();
 
-    // Mock function for next step
-    const nextStepMock = jest.fn();
-
+describe('Page1 Component', () => { 
     // Test for proper rendering of the component
     it('Renders without crashing', () => {
       render(
@@ -62,32 +61,3 @@ describe('Page1 Component', () => {
     });
 });
 
-/*
- // Test for form validation
-    it('displays validation errors for invalid data', async () => {
-        const { getByText, container } = render(
-          <Page1
-            nextStep={nextStepMock}
-            formData={formData}
-            updater={updateFormData}
-          />
-        );
-      
-        // Submit form without filling anything
-        fireEvent.click(getByText(/Next/i));
-      
-        // Assert validation errors are displayed within a div with classname "error"
-        await waitFor(() => {
-          const errorDiv = container.querySelector('error');
-          expect(errorDiv).toBeInTheDocument();
-      
-          // Check if each error message is present within the error div
-          expect(errorDiv).toHaveTextContent(/Full name is required/i);
-          expect(errorDiv).toHaveTextContent(/Future date not allowed/i);
-          expect(errorDiv).toHaveTextContent(/Email is required/i);
-          expect(errorDiv).toHaveTextContent(/Phone Number is required/i);
-        });
-      });
-
-
-*/

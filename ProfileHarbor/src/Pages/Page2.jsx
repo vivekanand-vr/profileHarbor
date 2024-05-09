@@ -185,7 +185,7 @@ const Page2 = ({ prevStep, nextStep, formData, updater }) => {
 
         <div className='p2-button'>
           <button onClick={prevStep} type="button">Previous</button>
-          <button type="submit">Next</button>
+          <button type="submit" data-testid="next-button">Next</button>
         </div>
       </form>
     </div>

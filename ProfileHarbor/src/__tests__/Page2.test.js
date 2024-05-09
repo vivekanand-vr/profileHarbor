@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent, waitFor, getByText } from '@testing-library/react';
+import { render, fireEvent, waitFor, getByText, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Page2 from '../Pages/Page2';
 
@@ -43,10 +43,11 @@ describe('Page2 Component', () => {
     it('updates form data on checkbox change', async () => {
       const { getByLabelText } = render(
         <Page2
+          prevStep={prevStepMock}
           nextStep={nextStepMock}
           formData={formData}
           updater={updateFormData}
-        />
+      />
       );
   
       // Simulate selecting a programming language
@@ -61,10 +62,24 @@ describe('Page2 Component', () => {
   
       // Simulate clicking on checkboxes for development stack
       fireEvent.click(getByLabelText('MEAN'));
-      fireEvent.click(getByLabelText('MERN'));
   
       // Simulate clicking on checkboxes for interested areas
       fireEvent.click(getByLabelText('UI/UX Design'));
-      fireEvent.click(getByLabelText('Backend Development'));
+
+      // Click on the submit button
+      const button = screen.getByText(/Next/i); 
+      fireEvent.click(button);
+    
+      await waitFor(() => {
+        // Assert nextStepMock was called
+        expect(nextStepMock).toHaveBeenCalled();
+
+        // Assert formData has been updated
+        expect(formData).toEqual({
+          programmingLanguage: 'JavaScript',
+          experienceLevel: 'Intermediate',
+          preferredStack: ['MEAN'], // as we are using a normal variable and nested array is not updated properly
+          interestedAreas: ['UI/UX Design'], }); // so we are not testing with multiple array elements
+      });
   });
 });

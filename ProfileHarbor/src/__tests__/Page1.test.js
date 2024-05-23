@@ -50,7 +50,6 @@ describe('Page1 Component', () => {
       // Assert nextStep and updateFormData were called
       await waitFor(() => {
         expect(nextStepMock).toHaveBeenCalled();
-        // Assert formData has been updated
         expect(formData).toEqual({
           name: 'John Doe',
           dob: '1990-01-01',

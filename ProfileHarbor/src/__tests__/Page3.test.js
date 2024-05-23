@@ -27,11 +27,8 @@ describe('Page3 Component', () => {
       // Check if updateFormDataMock was called with the correct data
       expect(updateFormDataMock).toHaveBeenCalledTimes(1); // Assuming resume change triggers the updater function
       expect(updateFormDataMock).toHaveBeenCalledWith('resume', resumeFile);
-  
-      // Submit the form
       fireEvent.click(getByText('Next'));
-  
-      // Assert nextStepMock was called
+      
       await waitFor(() => {
         expect(nextStepMock).toHaveBeenCalled();
       });

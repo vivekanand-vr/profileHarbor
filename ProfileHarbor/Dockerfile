@@ -19,7 +19,7 @@ RUN npm install --silent
 # Copy the rest of the files to the working directory
 COPY . .
 
-# Expose port 5173 to tell Docker that the container listens on the specified network ports at runtime
+# Expose port 5173 to tell Docker that the container listens on the specified ports at runtime
 EXPOSE 3000
 
 # Command to run the app

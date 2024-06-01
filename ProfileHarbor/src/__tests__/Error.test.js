@@ -5,7 +5,6 @@ import Error from '../Pages/Error';
 describe('Error Component', () => {
   it('renders without crashing', () => {
     render(<Error />);
-    // No errors means it rendered successfully
   });
 
   it('calls handleSubmit when "Try Again" button is clicked', () => {

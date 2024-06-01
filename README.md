@@ -21,10 +21,8 @@ ProfileHarbor is a web application designed to collect various types of informat
 7. `Success Page`: After successful submission, users are directed to a success page, where the form values are reset, allowing them to submit another form if needed.
 
 ## Technologies Used
-- **Frontend** : React JS, Bootstrap, Jest
--  **Backend** : Spring Boot, Junit
-- **Database** : MySQL
-- **Additional Packages** : Formik, Yup, React-pdf, Axios
+- **Frontend** : Formik, Yup, React-pdf, Axios, React JS, Bootstrap, Jest
+-  **Backend** : Spring Boot, Junit, MySQL 
 
 ## Installation and Usage
 
@@ -46,8 +44,8 @@ This installs all the dependencies required for the application to run
 
 ### `npm run build`
 
-- Builds the app for production to the `build` folder. It correctly bundles React in production mode and optimizes the build for the best performance.\
-- The build is minified and the filenames include the hashes Your app is ready to be deployed!\
+- Builds the app for production to the `build` folder. It correctly bundles React in production mode and optimizes the build for the best performance.
+- The build is minified and the filenames include the hashes Your app is ready to be deployed!
 - See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information. 
 
 ### To run the Backend app (Register Details) :
